@@ -1,5 +1,4 @@
 /* eslint-disable @next/next/no-img-element */
-import { Movie } from "@/types/Movie";
 import { categories, getMovies } from "@/utils/data";
 
 export const revalidate = 86400;
@@ -9,11 +8,9 @@ export default async function Home() {
 
   const response = await getMovies(path);
 
-  const movies: Movie[] = response.data.results;
-
   return (
     <main className="grid grid-cols-3 gap-4 md:grid-cols-2 sm:grid-cols-1">
-      {movies.map((movie) => (
+      {response.map((movie) => (
         <div
           key={movie.id}
           className="flex flex-col items-center p-6 bg-zinc-800"
