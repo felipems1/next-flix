@@ -4,8 +4,8 @@ import { categories, getMovies } from "@/utils/data";
 
 export const revalidate = 86400;
 
-export default async function Home() {
-  const { path } = categories[0];
+export default async function Popular() {
+  const { path } = categories[1];
 
   const response = await getMovies(path);
 
