@@ -1,5 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
-import { categories, getMovies } from "@/utils/data";
+import { categories, getMovies } from "@/utils/links";
 
 export const revalidate = 86400;
 
