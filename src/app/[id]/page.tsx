@@ -9,16 +9,16 @@ interface Props {
   };
 }
 
-export default async function Home({ params }: Props) {
+export default async function Movies({ params }: Props) {
   const index = params.id;
 
   const { path } = categories[index];
 
-  const response = await getMovies(path);
+  const movies = await getMovies(path);
 
   return (
     <main className="grid grid-cols-3 gap-4 md:grid-cols-2 sm:grid-cols-1">
-      {response.map((movie) => (
+      {movies.map((movie) => (
         <div
           key={movie.id}
           className="flex flex-col items-center p-6 bg-zinc-800"

@@ -6,11 +6,11 @@ export const revalidate = 86400;
 export default async function Home() {
   const { path } = categories[0];
 
-  const response = await getMovies(path);
+  const movies = await getMovies(path);
 
   return (
     <main className="grid grid-cols-3 gap-4 md:grid-cols-2 sm:grid-cols-1">
-      {response.map((movie) => (
+      {movies.map((movie) => (
         <div
           key={movie.id}
           className="flex flex-col items-center p-6 bg-zinc-800"
