@@ -25,7 +25,7 @@ export default function RootLayout({
               Next Flix
             </h3>
             <nav className="space-y-5 mt-5">
-              {categories.map((item, index) => (
+              {categories.map((item) => (
                 <Link
                   key={item.id}
                   href={`/${item.id}`}
