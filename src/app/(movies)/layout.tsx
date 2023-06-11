@@ -1,6 +1,6 @@
 import Link from "next/link";
-import "../styles/globals.css";
-import { categories } from "@/utils/links";
+import "../../styles/globals.css";
+import { categories } from "@/utils/categories";
 
 export const metadata = {
   title: "Next Flix",
@@ -28,7 +28,7 @@ export default function RootLayout({
               {categories.map((item) => (
                 <Link
                   key={item.id}
-                  href={`/${item.id}`}
+                  href={`${item.id}`}
                   className="flex items-center gap-3 text-sm font-semibold text-zinc-200 hover:text-zinc-500"
                 >
                   {item.title}
