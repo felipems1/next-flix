@@ -28,7 +28,7 @@ export default function RootLayout({
               {categories.map((item) => (
                 <Link
                   key={item.id}
-                  href={`${item.id}`}
+                  href={item.param}
                   className="flex items-center gap-3 text-sm font-semibold text-zinc-200 hover:text-zinc-500"
                 >
                   {item.title}

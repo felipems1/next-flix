@@ -12,7 +12,13 @@ export function Movie() {
 
   const { slug } = useParams();
 
-  const { path } = categories[parseInt(slug)];
+  let path = ''
+
+  const index = categories.findIndex(item => item.param === slug)
+
+  if(index > -1) {
+    path = categories[index].path
+  }
 
   useEffect(() => {
     const reqMovies = async () => {
@@ -24,8 +30,9 @@ export function Movie() {
   }, [path, slug]);
 
   return (
-    <main className="grid grid-cols-3 gap-4 md:grid-cols-2 sm:grid-cols-1">
-      {movies.map((movie) => (
+    
+  <>
+  {movies.map((movie) => (
         <div
           key={movie.id}
           className="flex flex-col items-center p-6 bg-zinc-800"
@@ -36,7 +43,7 @@ export function Movie() {
             className="w-full h-full"
             priority
             width={200}
-            height={400}
+            height={300}
           />
           <h3 className="mt-3 mb-3 text-xl text-center sm:text-base">
             {movie.title || movie.name}
@@ -51,6 +58,6 @@ export function Movie() {
           </a>
         </div>
       ))}
-    </main>
+  </>
   );
 }
